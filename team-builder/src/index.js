@@ -11,6 +11,9 @@ function App() {
 
   const [teamList, setTeamMemberList] = useState([member]);
 
+  const [memberToEdit, setMemberToEdit] = useState({});
+
+
   const addNewMember = member => {
     const newMember = {
         id: Date.now(),

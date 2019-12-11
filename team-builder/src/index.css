@@ -43,4 +43,11 @@ code {
   width: auto;
   display: inline-block;
   margin: 16px;
+  position: relative;
+}
+
+.member-container button {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
