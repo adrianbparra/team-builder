@@ -7,7 +7,7 @@ import MemberList from "./Components/MemberList"
 
 function App() {
 
-  const member = {id: 12, name: "Adrian Parra", email : "adrianparra@lambda.com", role: "student"}
+  const member = {id: Date.now(), name: "Adrian Parra", email : "adrianparra@lambda.com", role: "student"}
 
   const [teamList, setTeamMemberList] = useState([member]);
 
@@ -22,19 +22,25 @@ function App() {
         email: member.email
     }
 
+
     const newMemberCollection = [...teamList, newMember];
 
     setTeamMemberList(newMemberCollection);
-  };
+    };
+
+  const editMember = memberEdit => {
+    console.log(memberEdit);
+    setMemberToEdit(member);
+  }
 
   return (
     <div className="App">
 
       <h1>Member List</h1>
 
-      <Form addNewMember={addNewMember}/>
+      <Form addNewMember={addNewMember} memberToEdit={memberToEdit}/>
 
-      <MemberList members={teamList}/>
+      <MemberList members={teamList} editMember={editMember}/>
 
     </div>
   );

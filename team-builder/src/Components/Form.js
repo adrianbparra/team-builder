@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function Form( { addNewMember }) {
+function Form( { addNewMember, memberToEdit }) {
 
     const [member, setNewMember] = useState({name: "", role: "", email: ""})
+
+    useEffect(()=>{
+        setNewMember(memberToEdit)
+    },[memberToEdit])
 
     const handleChanges = e => {
 

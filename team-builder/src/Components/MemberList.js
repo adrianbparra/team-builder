@@ -1,8 +1,13 @@
 import React from 'react';
 
-function MemberList( {members} ) {
+function MemberList( {members, editMember} ) {
 
-
+    // const editOption = (member) =>{
+        
+    //     console.log(member)
+    //     // editMember(member);
+        
+    // }
 
     return (
         <div className="list-container">
@@ -12,7 +17,7 @@ function MemberList( {members} ) {
                     <h2>Name: {member.name}</h2>
                     <p>Role: {member.role}</p>
                     <p>Email: {member.email}</p>
-                    <button>edit</button>
+                    <button onClick={()=>{editMember(member)}}>edit</button>
                 </div>
             ))}
         </div>
