@@ -7,63 +7,57 @@ import MemberList from "./Components/MemberList"
 
 function App() {
 
-    const member = {id: Date.now(), name: "Adrian Parra", email : "adrianparra@lambda.com", role: "student"}
+    const member = {id: Date.now(), name: "Adrian Parra", email : "adrianparra@lambda.com", role: "student",team: "julie"}
 
-    const [teamList, setTeamMemberList] = useState([member]);
+    const [memberList, setMemberList] = useState([member]);
 
     const [memberToEdit, setMemberToEdit] = useState({});
 
+    const [teamList, setTeamList] = useState([]);
+
 
     const addNewMember = member => {
-        debugger
+        // debugger
 
         if(member.id){
 
             //find obj that matches
-            const editting = teamList.findIndex(mem =>mem.id === member.id);
+            const editting = memberList.findIndex(mem =>mem.id === member.id);
 
-            // console.log(editting);
-
-            // console.log(teamList);
-
-            const newList = [...teamList];
+            const newList = [...memberList];
             
             newList.splice(editting,1)
 
-            // console.log(newList,"new List");
             const changedMember = {
                 id : member.id,
                 name : member.name,
                 role: member.role,
-                email: member.email
+                email: member.email,
+                team: member.team
             }
-            //loop through list
-            // loop through items and then change info
-            //set new list
 
             console.log("found", editting);
-            // setTeamMemberList(...teamList, {id: member.id , name: [editting.name]})
 
-            
 
             const newMemberCollection = [...newList, changedMember];
 
             newMemberCollection.sort((f,s)=> f.id - s.id )
 
-            setTeamMemberList(newMemberCollection);
+            setMemberList(newMemberCollection);
             return 
         }
         const newMember = {
             id: Date.now(),
             name: member.name,
             role: member.role,
-            email: member.email
+            email: member.email,
+            team: member.team
         }
 
         console.log(newMember,"out of changed")
-        const newMemberCollection = [...teamList, newMember];
+        const newMemberCollection = [...memberList, newMember];
 
-        setTeamMemberList(newMemberCollection);
+        setMemberList(newMemberCollection);
     };
 
     const editMember = memberEdit => {
@@ -78,7 +72,7 @@ function App() {
 
         <Form addNewMember={addNewMember} memberToEdit={memberToEdit}/>
 
-        <MemberList members={teamList} editMember={editMember}/>
+        <MemberList members={memberList} editMember={editMember}/>
 
         </div>
     );

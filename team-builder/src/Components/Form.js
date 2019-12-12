@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 
 function Form( { addNewMember, memberToEdit }) {
 
-    const [member, setNewMember] = useState({ name: "", role: "", email: ""})
+    const [member, setNewMember] = useState({ name: "", role: "", email: "",team: ""})
 
     useEffect(()=>{
-        setNewMember({name:"",role:"", email:""});
+        setNewMember({name:"",role:"", email:"",team:""});
 
         setNewMember(memberToEdit)
     },[memberToEdit])
@@ -21,7 +21,7 @@ function Form( { addNewMember, memberToEdit }) {
 
         addNewMember(member);
 
-        setNewMember({name:"",role:"", email:""});
+        setNewMember({name:"",role:"", email:"",team:""});
     }
 
     let submitButtonText;
@@ -56,6 +56,14 @@ function Form( { addNewMember, memberToEdit }) {
                 name="email"
                 value={member.email} 
                 onChange={handleChanges}
+            ></input>
+            <label htmlFor="team">Team</label>
+            <input 
+                id="team" 
+                type="text" 
+                name="team" 
+                onChange={handleChanges}
+                value={member.team}
             ></input>
             <button type="submit">
                 {submitButtonText}

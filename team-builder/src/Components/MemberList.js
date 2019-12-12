@@ -18,6 +18,7 @@ function MemberList( {members, editMember} ) {
                     <h2>Name: {member.name}</h2>
                     <p>Role: {member.role}</p>
                     <p>Email: {member.email}</p>
+                    <p>Team: {member.team}</p>
                     <button onClick={()=>{editMember(member)}}>edit</button>
                 </div>
             ))}
