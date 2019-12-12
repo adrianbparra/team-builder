@@ -12,6 +12,7 @@ function MemberList( {members, editMember} ) {
     return (
         <div className="list-container">
             {/* map data for list and display */}
+            <h1>Member List</h1>
             {members.map(member => (
                 <div className="member-container" key={member.id}>
                     <h2>Name: {member.name}</h2>

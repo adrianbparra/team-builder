@@ -39,15 +39,21 @@ code {
   width: 100%;
 }
 
+.list-container h1 {
+  text-align: center;
+}
+
 .list-container .member-container {
   width: auto;
   display: inline-block;
   margin: 16px;
+  padding: 12px 24px;
   position: relative;
+  border: 1px solid gray;
 }
 
 .member-container button {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 4px;
+  top: 4px;
 }

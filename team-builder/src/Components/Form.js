@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 
 function Form( { addNewMember, memberToEdit }) {
 
-    const [member, setNewMember] = useState({name: "", role: "", email: ""})
+    const [member, setNewMember] = useState({ name: "", role: "", email: ""})
 
     useEffect(()=>{
+        setNewMember({name:"",role:"", email:""});
+
         setNewMember(memberToEdit)
     },[memberToEdit])
 
@@ -20,6 +22,13 @@ function Form( { addNewMember, memberToEdit }) {
         addNewMember(member);
 
         setNewMember({name:"",role:"", email:""});
+    }
+
+    let submitButtonText;
+    if(member.id){
+        submitButtonText = "Change"
+    } else {
+        submitButtonText = "Submit"
     }
 
     return (
@@ -48,7 +57,9 @@ function Form( { addNewMember, memberToEdit }) {
                 value={member.email} 
                 onChange={handleChanges}
             ></input>
-            <button onChange={handleChanges}>Submit</button>
+            <button type="submit">
+                {submitButtonText}
+            </button>
         </form>
     )
 }
