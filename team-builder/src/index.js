@@ -48,6 +48,8 @@ function App() {
 
             const newMemberCollection = [...newList, changedMember];
 
+            newMemberCollection.sort((f,s)=> f.id - s.id )
+
             setTeamMemberList(newMemberCollection);
             return 
         }
