@@ -13,14 +13,14 @@ function App() {
 
     const [memberToEdit, setMemberToEdit] = useState({});
 
-    const [teamList, setTeamList] = useState([]);
+    const [teamList, setTeamList] = useState(["julie"]);
 
 
     const addNewMember = member => {
-        // debugger
+        debugger
 
         if(member.id){
-
+            
             //find obj that matches
             const editting = memberList.findIndex(mem =>mem.id === member.id);
 
@@ -54,6 +54,10 @@ function App() {
             team: member.team
         }
 
+        const newTeam = member.team.toLowerCase(); 
+
+        setTeamList([...teamList, newTeam]);
+
         console.log(newMember,"out of changed")
         const newMemberCollection = [...memberList, newMember];
 
@@ -72,7 +76,7 @@ function App() {
 
         <Form addNewMember={addNewMember} memberToEdit={memberToEdit}/>
 
-        <MemberList members={memberList} editMember={editMember}/>
+        <MemberList members={memberList} teams={teamList} editMember={editMember}/>
 
         </div>
     );
